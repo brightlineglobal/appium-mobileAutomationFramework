@@ -366,7 +366,7 @@ public class ScreenActions {
   }
 
   /**
-   * tap to element for 250sec
+   * tap to element for 250 ms
    *
    * @param androidElement element
    */
