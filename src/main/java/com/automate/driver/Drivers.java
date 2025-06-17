@@ -27,7 +27,7 @@ public final class Drivers {
 
   public static AppiumDriver<MobileElement> createAndroidDriverForNativeApp(String deviceName, String udid, int port, String emulator) {
     try {
-      var capability = new DesiredCapabilities();
+      DesiredCapabilities capability = new DesiredCapabilities();
       capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
       capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
       capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2); // Specific to Android
@@ -50,7 +50,7 @@ public final class Drivers {
 
   public static AppiumDriver<MobileElement> createAndroidDriverForWeb(String deviceName, String udid, int port, String emulator) {
     try {
-      var capability = new DesiredCapabilities();
+      DesiredCapabilities capability = new DesiredCapabilities();
       capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
       capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
       capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
@@ -72,7 +72,7 @@ public final class Drivers {
 
   public static AppiumDriver<MobileElement> createIOSDriverForNativeApp(String deviceName, String udid, int port) {
     try {
-      var capability = new DesiredCapabilities();
+      DesiredCapabilities capability = new DesiredCapabilities();
       capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.IOS);
       capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
       capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
@@ -90,7 +90,7 @@ public final class Drivers {
 
   public static AppiumDriver<MobileElement> createIOSDriverForWeb(String deviceName, String udid, int port) {
     try {
-      var capability = new DesiredCapabilities();
+      DesiredCapabilities capability = new DesiredCapabilities();
       capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.IOS);
       capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
       capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
