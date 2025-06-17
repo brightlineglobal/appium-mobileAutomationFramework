@@ -1,6 +1,7 @@
 # Appium Mobile Automation Framework
 
 Framework for Mobile test automation (Native app and Browser) on Android and IOS devices :iphone:
+**This framework requires Java 8 (JDK 8).**
 
 <img src = "https://user-images.githubusercontent.com/48508827/136083498-e707b438-0ade-47fc-bb2b-fce34f8d04e3.png" width="500" height="300">
 
