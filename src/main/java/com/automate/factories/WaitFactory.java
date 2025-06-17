@@ -23,13 +23,16 @@ import static com.automate.enums.WaitStrategy.VISIBLE;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class WaitFactory {
 
-  private static final Map<WaitStrategy, Function<MobileElement, WebElement>> WAIT_FOR_ELEMENT_FUNCTION_MAP =
-    new EnumMap<>(WaitStrategy.class);
+    private static final Map<WaitStrategy, Function<MobileElement, WebElement>> WAIT_FOR_ELEMENT_FUNCTION_MAP =
+      new EnumMap<>(WaitStrategy.class);
 
   private static final Function<MobileElement, WebElement> CLICKABLE_ELEMENT = mobileElement ->
     new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.EXPLICIT_WAIT)
       .until(ExpectedConditions.elementToBeClickable(mobileElement));
   private static final Function<MobileElement, WebElement> VISIBILITY_OF_ELEMENT = mobileElement ->
+    new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.EXPLICIT_WAIT)
+      .until(ExpectedConditions.visibilityOf(mobileElement));
+  private static final Function<MobileElement, WebElement> PRESENCE_OF_ELEMENT = mobileElement ->
     new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.EXPLICIT_WAIT)
       .until(ExpectedConditions.visibilityOf(mobileElement));
   private static final Function<MobileElement, WebElement> NO_MATCH = mobileElement -> mobileElement;
@@ -51,6 +54,7 @@ public final class WaitFactory {
   static {
     WAIT_FOR_ELEMENT_FUNCTION_MAP.put(CLICKABLE, CLICKABLE_ELEMENT);
     WAIT_FOR_ELEMENT_FUNCTION_MAP.put(VISIBLE, VISIBILITY_OF_ELEMENT);
+    WAIT_FOR_ELEMENT_FUNCTION_MAP.put(PRESENCE, PRESENCE_OF_ELEMENT);
     WAIT_FOR_ELEMENT_FUNCTION_MAP.put(NONE, NO_MATCH);
     WAIT_FOR_ELEMENT_LOCATED_BY_FUNCTION_MAP.put(CLICKABLE, CLICKABLE_ELEMENT_BY);
     WAIT_FOR_ELEMENT_LOCATED_BY_FUNCTION_MAP.put(PRESENCE, PRESENCE_OF_ELEMENT_BY);
