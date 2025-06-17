@@ -26,7 +26,7 @@ public final class TestUtils {
   public static void deleteFolder(File file) {
     File[] files = file.listFiles();
     if (Objects.nonNull(files))
-      Arrays.asList(files).forEach(content -> file.delete());
+      Arrays.asList(files).forEach(content -> content.delete());
   }
 
   public static HashMap<String, String> parseStringXML(InputStream in) throws IOException, SAXException, ParserConfigurationException {
