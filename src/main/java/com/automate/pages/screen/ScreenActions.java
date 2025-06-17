@@ -243,7 +243,7 @@ public class ScreenActions {
         ((AndroidDriver<MobileElement>) DriverManager.getDriver()).setPowerAC(PowerACState.OFF);
         break;
       default:
-        ExtentReportLogger.warning("Voice state not available");
+        ExtentReportLogger.warning("Power state not available");
         break;
     }
   }
