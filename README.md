@@ -72,7 +72,7 @@ To check ios set up `appium-doctor --ios`
 1) Open command prompt, go to `<sdk emulator path>`
 
 ```
-Command to stard AVD: `emulator -avd <avd_name>`
+Command to start AVD: `emulator -avd <avd_name>`
 Command to stop/kill AVD: `adb -e emu kill`
 ```
 
