@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 public final class SettingsPage extends ScreenActions {
 
   @AndroidFindBy(accessibility = "test-LOGOUT")
-  private static MobileElement logOutButton;
+  private MobileElement logOutButton;
 
   public LoginPage pressLogOutButton() {
     click(logOutButton, "Logout");

@@ -11,18 +11,18 @@ public final class LoginPage extends ScreenActions {
 
   @AndroidFindBy(accessibility = "test-Username")
   @iOSXCUITFindBy(accessibility = "test-Username")
-  private static MobileElement txtFieldUsername;
+  private MobileElement txtFieldUsername;
 
   @AndroidFindBy(accessibility = "test-Password")
   @iOSXCUITFindBy(accessibility = "test-Password")
-  private static MobileElement txtFieldPassword;
+  private MobileElement txtFieldPassword;
 
   @AndroidFindBy(accessibility = "test-LOGIN")
   @iOSXCUITFindBy(accessibility = "test-LOGIN")
-  private static MobileElement btnLogin;
+  private MobileElement btnLogin;
 
   @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Error message']/android.widget.TextView")
-  private static MobileElement errorMessage;
+  private MobileElement errorMessage;
 
   public boolean isLoginPageDisplayed() {
     return isElementDisplayed(txtFieldUsername);
