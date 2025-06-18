@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.EnumMap;
@@ -34,7 +36,14 @@ public final class WaitFactory {
       .until(ExpectedConditions.visibilityOf(mobileElement));
   private static final Function<MobileElement, WebElement> PRESENCE_OF_ELEMENT = mobileElement ->
     new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.EXPLICIT_WAIT)
-      .until(ExpectedConditions.visibilityOf(mobileElement));
+      .until(driver -> {
+        try {
+          mobileElement.getLocation();
+          return mobileElement;
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+          return null;
+        }
+      });
   private static final Function<MobileElement, WebElement> NO_MATCH = mobileElement -> mobileElement;
 
   private static final Map<WaitStrategy, Function<By, WebElement>> WAIT_FOR_ELEMENT_LOCATED_BY_FUNCTION_MAP =
