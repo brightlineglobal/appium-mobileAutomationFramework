@@ -20,6 +20,7 @@ public final class LoginTest extends BaseTest {
   @BeforeMethod
   public void initialize() {
     loginPage = new LoginPage();
+    Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login page should be displayed");
   }
 
   @FrameworkAnnotation(author = "User-1", category = {CategoryType.REGRESSION, CategoryType.SMOKE})
