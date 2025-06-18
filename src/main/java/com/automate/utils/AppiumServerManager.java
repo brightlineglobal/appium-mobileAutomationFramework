@@ -52,13 +52,15 @@ public final class AppiumServerManager {
 
   public static void stopAppiumServer() {
     if (PropertyUtils.getPropertyValue(ConfigProperties.START_APPIUM_SERVER).equalsIgnoreCase("yes")) {
-      service.stop();
-      Runtime runtime = Runtime.getRuntime();
-      try {
-        runtime.exec("taskkill /F /IM node.exe");
-        runtime.exec("taskkill /F /IM cmd.exe");
-      } catch (Exception e) {
-        e.printStackTrace();
+      if (service != null && service.isRunning()) {
+        service.stop();
+        Runtime runtime = Runtime.getRuntime();
+        try {
+          runtime.exec("taskkill /F /IM node.exe");
+          runtime.exec("taskkill /F /IM cmd.exe");
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
   }
